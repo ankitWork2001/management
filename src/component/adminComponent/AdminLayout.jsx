@@ -5,18 +5,14 @@ import AdminSidebar from './AdminSidebar'
 
 function AdminLayout() {
     return (
-        <div>
-            <nav>
-                <Navbar />
-            </nav>
             <div className=' px-5 flex'>
                 <aside className='w-[15%]'>
                     <AdminSidebar />
                 </aside>
                 <main>
+                    <Navbar />
                     <Outlet />
                 </main>
-            </div>
         </div>
     )
 }
