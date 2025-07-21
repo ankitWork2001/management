@@ -1,9 +1,54 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { IoMdSearch } from "react-icons/io";
+import { IoSettingsSharp } from "react-icons/io5";
+import { IoNotifications } from "react-icons/io5";
+import profile from '../../assets/Navbar_imgs/profile.png'
+import { AnimatePresence,motion } from 'framer-motion';
+import { RxCross2 } from "react-icons/rx";
 function Navbar() {
+  const [search,setSearch] = useState(false)
   return (
     <div>
-      Navbar
+     {/* For Large Screen */}
+    <div className='md:flex hidden justify-between items-center h-16'>
+      <h2 className='font-semibold text-lg'>Dashboard</h2>
+      <div className='flex gap-2'>
+        <div className='flex items-center gap-2 pl-4 rounded-3xl bg-gray-950'>
+           <IoMdSearch className='text-gray-400'/>
+           <input type="text" placeholder='Type here...' className='outline-none '/>
+        </div>
+        <div className='flex items-center gap-5'>
+          <IoSettingsSharp className='w-5 h-5 cursor-pointer text-[#0075FF]'/>
+          <IoNotifications className='w-5 h-5 cursor-pointer text-[#0075FF]'/>
+          <img src={profile} alt="Profile" className='w-8 cursor-pointer'/>
+        </div>
+      </div>
+    </div>
+    
+    {/* For Small Screen */}
+    <div className='flex md:hidden justify-between items-center'>
+      <h2 className={`${search ? 'hidden' : 'block'} font-semibold text-lg`}>Dashboard</h2>
+      <div className={`${search ? 'w-full justify-center' : 'none'} flex gap-2 items-center `}>
+        <IoMdSearch onClick={() => setSearch(true)} className={`${search ? 'hidden' : 'block'} text-[#0075FF] w-6 h-6`} />
+        <AnimatePresence>
+          {search &&
+            <motion.div initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 100, opacity: 0 }}
+              transition={{ duration: 0.5 }} className={`flex w-[50%] items-center gap-2 rounded-3xl bg-gray-950 pl-4`}>
+              <IoMdSearch className='text-gray-400 w-6 h-6 ml-' />
+              <input type="text" placeholder='Type here...' className='outline-none w-full h-10' />
+            </motion.div>
+          }
+        </AnimatePresence>
+        <RxCross2 onClick={() => setSearch(false)} className={`${search ? 'block' : 'hidden'} w-5 h-5`} />
+        <div className='flex items-center gap-5'>
+          <IoSettingsSharp className='w-5 h-5 cursor-pointer text-[#0075FF]' />
+          <IoNotifications className='w-5 h-5 cursor-pointer text-[#0075FF]' />
+          <img src={profile} alt="Profile" className='w-8 cursor-pointer' />
+        </div>
+      </div>
+    </div>
     </div>
   )
 }

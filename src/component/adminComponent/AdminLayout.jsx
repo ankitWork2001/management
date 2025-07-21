@@ -5,11 +5,11 @@ import AdminSidebar from './AdminSidebar'
 
 function AdminLayout() {
     return (
-        <div className=' px-5 flex md:flex-row flex-col h-screen  bg-[#001434] text-white'>
+             <div className=' px-5 flex md:flex-row flex-col h-screen  bg-[#001434] text-white'>
             <aside className='md:w-[23%] mt-10 overflow-y-scroll mb-13 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
                 <AdminSidebar />
             </aside>
-            <main className=' mt-10'>
+            <main className='w-full overflow-y-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
                 <Navbar />
                 <Outlet />
             </main>
