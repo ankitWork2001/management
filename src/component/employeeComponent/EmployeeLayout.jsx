@@ -14,7 +14,7 @@ function EmployeeLayout() {
                 <Outlet />
             </main>
         </div>
-  )
+    )
 }
 
 export default EmployeeLayout
