@@ -28,8 +28,8 @@ function AdminSidebar() {
   }, [location])
   console.log(value)
   return (
-    <div className='flex md:flex-col gap-10 justify-between md:justify-center md:items-center'>
-      <div>
+    <div className='flex md:flex-col gap-10 mb-7 justify-between md:justify-center md:items-center'>
+      <div className=''>
         <img src={logo} alt="Logo" />
       </div>
       <hr className="h-[2px] w-full md:block hidden border-0 bg-gradient-to-r from-[#001434] via-gray-300 to-[#001434]" />
@@ -112,96 +112,98 @@ function AdminSidebar() {
       </div>
 
       {/* Small screen */}
-      <div className='relative'>
 
+      <div className='relative '>
         <div className='flex justify-end '>
           <IoMenu onClick={() => setSidebarOpen(true)} className={` ${sidebaropen ? 'hidden' : "block"} w-10 h-10 md:hidden block`} />
-          <RxCross2 onClick={() => setSidebarOpen(false)} className={`${sidebaropen ? 'block' : 'hidden'} w-10 h-10`} />
         </div>
 
         <AnimatePresence>
-         {
-          sidebaropen && (
-            <motion.div initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 flex md:hidden fixed top-32 right-0 h-full  flex-col gap-2`}>
-          <NavLink
-            to="/admin"
-            end
-            className={({ isActive }) =>
-              `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-          }
-          >
-            <div className="flex items-center gap-5 px-4 py-3 rounded-2xl">
-              <div className={`${value === 'admin' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'}  p-2 rounded-xl`}>
-                <FaHome className={`${value === 'admin' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'}  w-[20px] h-[20px] bg-[#1A1F37]`} />
-              </div>
-              <p className="text-white font-semibold text-xl">Dashboard</p>
-            </div>
-          </NavLink>
+          {
+            sidebaropen && (
+              <motion.div initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 px-5 flex md:hidden bg-gray-900 fixed right-0 h-full  flex-col gap-2`}>
+                <div className='flex justify-end mr-5 mb-10'>
+                  <RxCross2 onClick={() => setSidebarOpen(false)} className={`${sidebaropen ? 'block' : 'hidden'} w-10 h-10`} />
+                </div>
+                <NavLink
+                  to="/admin"
+                  end
+                  className={({ isActive }) =>
+                    `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                  }
+                >
+                  <div className="flex items-center gap-5 px-4 py-3 rounded-2xl">
+                    <div className={`${value === 'admin' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'}  p-2 rounded-xl`}>
+                      <FaHome className={`${value === 'admin' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'}  w-[20px] h-[20px] bg-[#1A1F37]`} />
+                    </div>
+                    <p className="text-white font-semibold text-xl">Dashboard</p>
+                  </div>
+                </NavLink>
 
-          <NavLink to={'add_employee'} className={({ isActive }) =>
-            `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-        }>
-            <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
-              <div className={`${value === 'add_employee' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} p-2 rounded-xl`}>
-                <IoMdAddCircle className={`${value === 'add_employee' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} w-[20px] h-[20px]  bg-[#1A1F37] `} />
-              </div>
-              <p className='text-white font-semibold text-xl'>Add Employee</p>
-            </div>
-          </NavLink>
-          <NavLink to={'employee_directory'} className={({ isActive }) =>
-            `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-        }>
-            <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
-              <div className={`${value === 'employee_directory' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
-                <RiContactsBook2Fill className={`${value === 'employee_directory' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px]`} />
-              </div>
-              <p className='text-white font-semibold text-xl'>Employee Directory</p>
-            </div>
-          </NavLink>
-          <NavLink to={'leave_requests'} className={({ isActive }) =>
-            `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-          }>
-            <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
-              <div className={`${value === 'leave_requests' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
-                <RiUserShared2Fill className={`${value === 'leave_requests' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
-              </div>
-              <p className='text-white font-semibold text-xl'>Leave Requests</p>
-            </div>
-          </NavLink>
-          <NavLink to={'document_tracker'} className={({ isActive }) =>
-            `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-        }>
-            <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
-              <div className={`${value === 'document_tracker' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
-                <IoDocument className={`${value === 'document_tracker' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
-              </div>
-              <p className='text-white font-semibold text-xl'>Document Tracker</p>
-            </div>
-          </NavLink>
-          <NavLink to={'profile_view'} className={({ isActive }) =>
-            `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-        }>
-            <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
-              <div className={`${value === 'profile_view' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
-                <FaUser className={`${value === 'profile_view' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
-              </div>
-              <p className='text-white font-semibold text-xl'>Profile View</p>
-            </div>
-          </NavLink>
-          <button className='cursor-pointer  mt-10 hover:bg-gray-700 rounded-2xl transition-all duration-300'>
-            <div className='flex items-center gap-5 px-4 py-3 rounded-2xl'>
-              <div className='bg-[#1A1F37] p-2 rounded-xl'>
-                <RiLogoutCircleLine className='text-[#0075FF] w-[20px] h-[20px]   ' />
-              </div>
-              <p className='text-white font-semibold text-xl'>Log Out</p>
-            </div>
-          </button>
-        </motion.div>
-      )
-     }
+                <NavLink to={'add_employee'} className={({ isActive }) =>
+                  `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                }>
+                  <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
+                    <div className={`${value === 'add_employee' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} p-2 rounded-xl`}>
+                      <IoMdAddCircle className={`${value === 'add_employee' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} w-[20px] h-[20px]  bg-[#1A1F37] `} />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Add Employee</p>
+                  </div>
+                </NavLink>
+                <NavLink to={'employee_directory'} className={({ isActive }) =>
+                  `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                }>
+                  <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
+                    <div className={`${value === 'employee_directory' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
+                      <RiContactsBook2Fill className={`${value === 'employee_directory' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px]`} />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Employee Directory</p>
+                  </div>
+                </NavLink>
+                <NavLink to={'leave_requests'} className={({ isActive }) =>
+                  `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                }>
+                  <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
+                    <div className={`${value === 'leave_requests' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
+                      <RiUserShared2Fill className={`${value === 'leave_requests' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Leave Requests</p>
+                  </div>
+                </NavLink>
+                <NavLink to={'document_tracker'} className={({ isActive }) =>
+                  `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                }>
+                  <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
+                    <div className={`${value === 'document_tracker' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
+                      <IoDocument className={`${value === 'document_tracker' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Document Tracker</p>
+                  </div>
+                </NavLink>
+                <NavLink to={'profile_view'} className={({ isActive }) =>
+                  `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
+                }>
+                  <div className='flex items-center gap-5  px-4 py-3 rounded-2xl'>
+                    <div className={`${value === 'profile_view' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'} bg-[#1A1F37] p-2 rounded-xl`}>
+                      <FaUser className={`${value === 'profile_view' ? 'text-white bg-[#0075FF]' : 'text-[#0075FF]'} text-[#0075FF] w-[20px] h-[20px] `} />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Profile View</p>
+                  </div>
+                </NavLink>
+                <button className='cursor-pointer  mt-10 hover:bg-gray-700 rounded-2xl transition-all duration-300'>
+                  <div className='flex items-center gap-5 px-4 py-3 rounded-2xl'>
+                    <div className='bg-[#1A1F37] p-2 rounded-xl'>
+                      <RiLogoutCircleLine className='text-[#0075FF] w-[20px] h-[20px]   ' />
+                    </div>
+                    <p className='text-white font-semibold text-xl'>Log Out</p>
+                  </div>
+                </button>
+              </motion.div>
+            )
+          }
         </AnimatePresence>
       </div>
 
