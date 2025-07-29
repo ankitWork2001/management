@@ -90,7 +90,7 @@ function DocumentTracker() {
           <tbody>
             {
               searchResult.map((employee,index) => (
-                <tr className='border-b border-gray-700'>
+                <tr key={index} className='border-b border-gray-700'>
                   <td className='px-4 py-3 text-[#D8D8D8]'>{employee.name}</td>
                   <td className={`${employee.resume === 'Uploaded' ? 'text-[#21AF5A]' : 'text-[#F5A130]' } px-4 py-3`}>{employee.resume}</td>
                   <td className={`${employee.idCard === 'Uploaded' ? 'text-[#21AF5A]' : 'text-[#F5A130]' } px-4 py-3`}>{employee.idCard}</td>

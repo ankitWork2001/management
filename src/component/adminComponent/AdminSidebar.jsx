@@ -26,7 +26,6 @@ function AdminSidebar() {
     else if (path === '/admin/profile_view') setValue('profile_view');
     else setValue('');
   }, [location])
-  console.log(value)
   return (
     <div className='flex md:flex-col gap-10 mb-7 justify-between md:justify-center md:items-center'>
       <div className=''>
@@ -113,7 +112,7 @@ function AdminSidebar() {
 
       {/* Small screen */}
 
-      <div className='relative '>
+      <div className='relative bg-black'>
         <div className='flex justify-end '>
           <IoMenu onClick={() => setSidebarOpen(true)} className={` ${sidebaropen ? 'hidden' : "block"} w-10 h-10 md:hidden block`} />
         </div>

@@ -54,15 +54,17 @@ function LeaveRequests() {
       <div className=' mt-10'>
         <table className='table-auto w-[90%] text-left'>
           <thead className='bg-gray-900 '>
+            <tr>
             <th className='px-4 py-2 '>Employee Name</th>
             <th className='px-4 py-2  '>Date</th>
             <th className='px-4 py-2 '>Type</th>
             <th className='px-4 py-2 text-center'>Status</th>
+            </tr>
           </thead>
           <tbody>
             {
               leaveRequests.map((request, index) => (
-                <tr className='text-[#A0AEC0] border-b border-gray-700'>
+                <tr key={index} className='text-[#A0AEC0] border-b border-gray-700'>
                   <td className='px-5 py-3 w-[25%]'>{request.name}</td>
                   <td className='px-5 py-3 w-[25%]'>{request.date}</td>
                   <td className='px-5 py-3 w-[25%]'>{request.type}</td>

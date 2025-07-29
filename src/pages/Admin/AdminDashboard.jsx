@@ -111,8 +111,8 @@ function AdminDashboard() {
     <div className='mt-10'>
       <section className='grid  grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4  lg:pl-0'>
         {
-          details.map((data) => (
-            <div className='flex justify-between items-center  bg-gradient-to-r from-[#4E6185] px-7 py-1 to-[#1A1F3780] rounded-xl'>
+          details.map((data,index) => (
+            <div key={index} className='flex justify-between items-center  bg-gradient-to-r from-[#4E6185] px-7 py-1 to-[#1A1F3780] rounded-xl'>
               <div >
                 <p className='text-[12px] text-[#A0AEC0] font-semibold '>{data.text}</p>
                 <p className='text-2xl font-semibold'>{data.NoOfEmployee}</p>
@@ -177,8 +177,8 @@ function AdminDashboard() {
           </div>
           <div className='space-y-5'>
             {
-              notification.map(data => (
-                <div className='flex gap-4'>
+              notification.map((data,index) => (
+                <div key={index} className='flex gap-4'>
                   <img src={data.logo} alt="logo" className='w-5 h-5' />
                   <p>{data.text}</p>
                   <p className='text-[#A0AEC0]'>{data.time}</p>
