@@ -11,7 +11,7 @@ function Navbar() {
   const location = useLocation()
   const navHeading = location.pathname.split('/').filter(str => {if(str != '' && str != 'admin') return str}).toString().replace('_',' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   return (
-    <div className='sticky top-0 bg-black  py-3 px-2 rounded'>
+    <div className='sticky top-0 bg-[#001434]  py-3 px-2 rounded'>
      {/* For Large Screen */}
     <div className='md:flex hidden justify-between items-center h-16'>
       <h2 className='text-2xl font-bold'>{navHeading ? navHeading : 'Dashboard'}</h2>
