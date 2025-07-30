@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
 function Navbar() {
   const [search,setSearch] = useState(false)
   const location = useLocation()
-  const navHeading = location.pathname.split('/').filter(str => {if(str != '' && str != 'admin') return str}).toString().replace('_',' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  const navHeading = location.pathname.split('/').filter(str => {if(str != '' && str != 'admin' && str != 'employee') return str}).toString().replace('_',' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   return (
     <div className='sticky top-0 bg-[#001434]  py-3 px-2 rounded'>
      {/* For Large Screen */}
