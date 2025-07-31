@@ -42,7 +42,42 @@ const attendanceData = [
     checkOut: "18:00",
     workHour: "10h",
     status: "Present"
-  }
+  },
+  {
+    date: "23-01-2025",
+    checkIn: "09:00",
+    checkOut: "18:00",
+    workHour: "10h",
+    status: "Present"
+  },
+  {
+    date: "23-01-2025",
+    checkIn: "09:00",
+    checkOut: "18:00",
+    workHour: "10h",
+    status: "Present"
+  },
+  {
+    date: "23-01-2025",
+    checkIn: "09:00",
+    checkOut: "18:00",
+    workHour: "10h",
+    status: "Present"
+  },
+  {
+    date: "23-01-2025",
+    checkIn: "09:00",
+    checkOut: "18:00",
+    workHour: "10h",
+    status: "Present"
+  },
+  {
+    date: "25-01-2025",
+    checkIn: "09:00",
+    checkOut: "18:00",
+    workHour: "10h",
+    status: "Present"
+  },
 ];
 
 function Attendance() {
@@ -54,7 +89,7 @@ function Attendance() {
      setTableData(showData === 'All' ? attendanceData : filterData)
   },[showData])
   return (
-    <div>
+    <div className='mt-7 mb-10'>
       <div className='flex md:justify-between flex-col md:flex-row items-center gap-5 mt-5'>
         <h1 className='text-2xl'>Attendance Overview</h1>
         <div className='flex gap-5 md:pr-15 '>
@@ -77,7 +112,7 @@ function Attendance() {
         </div>
       </div>
 
-      <div className='mt-10 scrollbar  overflow-y-scroll'>
+      <div className='mt-10 scrollbar h-[57vh] overflow-y-scroll'>
         <table className='md:w-[90%] text-left'>
           <thead className='bg-[#050E28]'>
             <tr>
