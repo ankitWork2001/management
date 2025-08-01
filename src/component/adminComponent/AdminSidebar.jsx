@@ -27,7 +27,7 @@ function AdminSidebar() {
     else setValue('');
   }, [location])
   return (
-    <div className='flex md:flex-col gap-10 mb-7 justify-between md:justify-center md:items-center'>
+    <div className='flex md:flex-col gap-10 justify-between md:justify-center md:items-center'>
       <div className=''>
         <img src={logo} alt="Logo" />
       </div>
@@ -112,7 +112,7 @@ function AdminSidebar() {
 
       {/* Small screen */}
 
-      <div className='relative bg-black'>
+      <div className='relative '>
         <div className='flex justify-end '>
           <IoMenu onClick={() => setSidebarOpen(true)} className={` ${sidebaropen ? 'hidden' : "block"} w-10 h-10 md:hidden block`} />
         </div>
@@ -123,8 +123,8 @@ function AdminSidebar() {
               <motion.div initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 px-5 flex md:hidden bg-gray-900 fixed right-0 h-full  flex-col gap-2`}>
-                <div className='flex justify-end mr-5 mb-10'>
+                transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 pl-5 flex md:hidden bg-gray-900 fixed top-0 right-0 h-full  flex-col gap-2`}>
+                <div className='flex justify-end pt-10 mr-5 mb-10'>
                   <RxCross2 onClick={() => setSidebarOpen(false)} className={`${sidebaropen ? 'block' : 'hidden'} w-10 h-10`} />
                 </div>
                 <NavLink

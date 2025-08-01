@@ -108,7 +108,7 @@ function AdminDashboard() {
     },
   ];
   return (
-    <div className='mt-10'>
+    <div>
       <section className='grid  grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4  lg:pl-0'>
         {
           details.map((data,index) => (

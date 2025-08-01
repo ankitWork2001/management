@@ -11,7 +11,7 @@ function Navbar() {
   const location = useLocation()
   const navHeading = location.pathname.split('/').filter(str => {if(str != '' && str != 'admin' && str != 'employee') return str}).toString().replace('_',' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
   return (
-    <div className='sticky top-0 bg-[#001434]  py-3 px-2 rounded'>
+    <div className='sticky -top-1 bg-[#001434]  py-3 px-2 rounded'>
      {/* For Large Screen */}
     <div className='md:flex hidden justify-between items-center h-16'>
       <h2 className='text-2xl font-bold'>{navHeading ? navHeading : 'Dashboard'}</h2>
@@ -29,7 +29,7 @@ function Navbar() {
     </div>
     
     {/* For Small Screen */}
-    <div className='flex md:hidden justify-between items-center'>
+    <div className='flex md:hidden justify-between items-center py-5'>
       <h2 className={`${search ? 'hidden' : 'block'} font-semibold text-xl`}>{navHeading ? navHeading : 'Dashboard'}</h2>
       <div className={`${search ? 'w-full justify-center' : 'none'} flex gap-2 items-center `}>
         <IoMdSearch onClick={() => setSearch(true)} className={`${search ? 'hidden' : 'block'} text-[#0075FF] w-6 h-6`} />

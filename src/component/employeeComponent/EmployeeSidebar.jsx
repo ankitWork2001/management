@@ -30,7 +30,7 @@ function EmployeeSidebar() {
   }, [location])
   console.log(value)
   return (
-    <div className='flex md:flex-col gap-10 justify-between md:justify-center md:items-center'>
+    <div className='flex  md:flex-col gap-10 justify-between md:justify-center md:items-center'>
       <div>
         <img src={logo} alt="Logo" />
       </div>
@@ -125,25 +125,26 @@ function EmployeeSidebar() {
       </div>
 
       {/* Small screen */}
-      <div className='relative'>
-
-        <div className='flex justify-end '>
-          <IoMenu onClick={() => setSidebarOpen(true)} className={` ${sidebaropen ? 'hidden' : "block"} w-10 h-10 md:hidden block`} />
-          <RxCross2 onClick={() => setSidebarOpen(false)} className={`${sidebaropen ? 'block' : 'hidden'} w-10 h-10`} />
+      <div className='relative '>
+        <div className='flex justify-end relative '>
+          <IoMenu onClick={() => setSidebarOpen(true)} className={` ${sidebaropen ? 'hidden' : "block"} w-10  h-10 md:hidden block`} />
         </div>
         <AnimatePresence>
           {
             sidebaropen && (
               <motion.div initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 flex md:hidden fixed top-32 right-0 h-full  flex-col gap-2`}>
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }} className={` z-50 bg-black top-0  flex md:hidden fixed pl-3 right-0 h-full  flex-col gap-2`}>
+                <div className='flex justify-end py-10 pr-5'>
+                <RxCross2 onClick={() => setSidebarOpen(false)} className={`${sidebaropen ? 'block' : 'hidden'} w-10 h-10`} />
+                </div>
                 <NavLink
                   to="/employee"
                   end
                   className={({ isActive }) =>
                     `${isActive ? 'bg-gray-800 rounded-2xl' : 'bg-none'}`
-                  }
+                }
                 >
                   <div className="flex items-center gap-5 px-4 py-3 rounded-2xl">
                     <div className={`${value === 'employee' ? 'bg-[#0075FF]' : 'bg-[#1A1F37]'}  p-2 rounded-xl`}>
